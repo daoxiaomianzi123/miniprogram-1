@@ -1,0 +1,47 @@
+.pad-left-58{
+    padding-left: 58rpx;
+}
+.pad-right-58{
+    padding-right: 58rpx;
+}
+.pad-top-58{
+    padding-top: 58rpx;
+}
+.pad-bottom-58{
+    padding-bottom: 58rpx;
+}
+.pad-58{
+    padding: 58rpx;
+}
+.mar-left-58{
+    margin-left: 58rpx;
+}
+.mar-right-58{
+    margin-right: 58rpx;
+}
+.mar-top-58{
+    margin-top: 58rpx;
+}
+.mar-bottom-58{
+    margin-bottom: 58rpx;
+}
+.mar-horizontal-58{
+    margin-left: 58rpx;
+    margin-right: 58rpx;
+}
+.pad-left-29{
+    padding-left: 29rpx;
+}
+.mar-top-27{
+    margin-top: 27rpx;
+}
+.mar-top-85{
+    margin-top: 185rpx;
+}
+.mar-top-55{
+    margin-top: 55rpx;
+}
+.mar-bottom-37{
+    margin-bottom: 37rpx;
+}
+

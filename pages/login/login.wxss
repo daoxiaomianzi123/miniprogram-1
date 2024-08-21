@@ -1,0 +1,117 @@
+/**app.wxss**/
+.container1 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 379rpx;
+}
+
+.content-container {
+    padding-top: 99rpx;
+    border-radius: 28rpx;
+    background-color: #fff;
+    position: relative;
+    top: 350rpx;
+    width: 100%;
+    height: calc(100% - 350rpx);
+    z-index: 1;
+}
+
+
+.view-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 85rpx;
+}
+
+.view-style,
+.view-style-active {
+    margin-left: 58rpx;
+    margin-right: 29rpx;
+    text-align: center;
+    cursor: pointer;
+    font-size: 32rpx;
+    width: auto;
+}
+
+.view-style {
+    color: #8D8D8D;
+}
+
+.view-style-active {
+    color: #2B66F7; /* 选中时的背景颜色 */
+    padding-bottom: 9rpx; /* 调整底部内边距 */
+    border-bottom: 5rpx solid #2B66F7; /* 添加底部边框 */
+}
+
+.input-style {
+    height: 100rpx;
+    border-radius: 12rpx 12rpx 12rpx 12rpx;
+    background: rgba(233, 235, 236, 0.4); /* 使用rgba设置背景颜色的不透明度 */
+}
+.login-button {
+    height: 97rpx;
+    background-color: #2B66F7; /* 设置按钮背景颜色 */
+    color: white; /* 设置按钮文本颜色 */
+    font-size: 36rpx; /* 设置按钮文本大小 */
+    border: none; /* 移除按钮边框 */
+    border-radius: 16rpx; /* 设置按钮圆角 */
+    text-align: center; /* 水平居中 */
+    display: flex; /* 使用 flex 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+
+/* 按钮按下时的样式 */
+.login-button-pressed {
+    background-color: #B8E5FF; /* 设置按钮背景颜色 */
+}
+
+/* 自定义checkbox样式 */
+checkbox .wx-checkbox-input {
+    margin-left: 58rpx;
+    width: 27rpx;
+    height: 27rpx;
+    border-radius: 50%;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    background: #2B66F7;
+    border-color:#2B66F7;
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    width: 27rpx;
+    height: 27rpx;
+    line-height: 27rpx;
+    text-align: center;
+    font-size: 22rpx;
+    color: #fff;
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+/* 文字样式 */
+.agreement-text {
+    font-size:24rpx;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+

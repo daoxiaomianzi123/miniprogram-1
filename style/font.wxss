@@ -1,0 +1,6 @@
+.font32{
+    font-size: 32rpx;
+}
+.font31{
+    font-size: 31rpx;
+}
