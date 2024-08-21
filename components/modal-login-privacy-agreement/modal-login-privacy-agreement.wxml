@@ -1,0 +1,13 @@
+<view class="modal" hidden="{{!showModal}}">
+    <view class="modal-content">
+        <view class="modal-title">温馨提示</view>
+        <view class="modal-text">
+            <text class="modal-text-normal">为了更好保障您的合法权益，请先阅读并同意</text>
+            <text class="modal-text-highlight" bindtap="navigateToPrivacyPolicy">《用户隐私协议》</text>
+        </view>
+        <view class="modal-buttons">
+            <button class="modal-button" bindtap="onCancel">不同意</button>
+            <button class="modal-button" bindtap="onConfirm">同意</button>
+        </view>
+    </view>
+</view>

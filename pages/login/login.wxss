@@ -21,7 +21,6 @@
     top: 350rpx;
     width: 100%;
     height: calc(100% - 350rpx);
-    z-index: 1;
 }
 
 

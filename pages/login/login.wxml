@@ -43,6 +43,7 @@
             </button>
         </view>
     </view>
+<modal-login-privacy-agreement showModal="{{showModal}}" bind:confirm="onConfirm" bind:cancel="onCancel"></modal-login-privacy-agreement>
 
 
 
