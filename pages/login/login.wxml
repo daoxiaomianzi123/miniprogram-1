@@ -34,13 +34,15 @@
                     class="mar-top-27 pad-left-29 mar-horizontal-58 input-style color333 font31 mar-bottom-37"
                     placeholder-class="colorD3D3D3 font31"
                     placeholder="请输入您运营车牌号" maxlength="8" type="text"></input>
-            <checkbox class="agreement-checkbox" value="agree" bindtap="onAgreementCheck"/>
+            <checkbox class="agreement-checkbox" value="agree" bindtap="onAgreementCheck" checked="{{agree}}"
+                      />
             <text class="agreement-text" style="color: #424242;">勾选即代表阅读并同意<text style="color: #2B66F7;"
             bindtap="navigateToPrivacyPolicy"
             >《用户隐私协议》</text></text>
-            <button hover-class="login-button-pressed"
+            <button hover-class="login-button-pressed" formType="submit"
                     style="width: auto;margin:101rpx 58rpx 0 58rpx" class="login-button" bindtap="onLogin">登录
             </button>
+            <captcha4 riskType="ai" id="captcha" captchaId="{{captchaId}}" bindSuccess="captchaSuccess" product="bind" verify="{{verify}}"></captcha4>
         </view>
     </view>
 <modal-login-privacy-agreement showModal="{{showModal}}" bind:confirm="onConfirm" bind:cancel="onCancel"></modal-login-privacy-agreement>

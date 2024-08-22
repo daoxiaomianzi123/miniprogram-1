@@ -1,7 +1,8 @@
 {
     "component": true,
     "usingComponents": {
-        "modal-login-privacy-agreement": "/components/modal-login-privacy-agreement/modal-login-privacy-agreement"
+        "modal-login-privacy-agreement": "/components/modal-login-privacy-agreement/modal-login-privacy-agreement",
+        "captcha4": "plugin://captcha4/captcha4"
     },
     "navigationStyle": "custom"
 }

@@ -1,4 +1,11 @@
 // pages/login.js
+const WXBizDataCrypt = require('../../utils/RdWXBizDataCrypt.js');
+const {
+    getOpenID,
+    weChatLogin,
+} = require('../../utils/api/api');
+const getUserInfo = require('../../utils/getUserInfo.js')
+
 Page({
 
     /**
@@ -10,6 +17,13 @@ Page({
         plateNumber: "",
         creditCodeNumber: "",
         showModal: false,
+        agree: false,
+        captchaId: 'b25e77bf3d8172481bc8e74b8cbde23b',
+        captchaData: null,
+        verify: false,
+        openid: '',
+        unionid: '',
+
     },
     toggleType: function (e) {
         const index = e.currentTarget.dataset.index;
@@ -35,44 +49,136 @@ Page({
             creditCodeNumber: e.detail.value
         });
         console.log(e.detail.value);
-    }
-    ,
-    navigateToPrivacyPolicy: function() {
+    },
+    onAgreementCheck: function () {
+        this.setData({
+            agree: !this.data.agree
+        });
+    },
+    navigateToPrivacyPolicy: function () {
         wx.navigateTo({
             url: '/pages/logs/logs'
         });
     },
-onLogin: function () {
-    this.setData({
-        showModal: true
-    });
-    // wx.showModal({
-    //     title: '温馨提示',
-    //     content: '为了更好保障您的合法权益，请先阅读并同意<span style="color: #424242;">为了更好保障您的合法权益，请先阅读并同意</span><span style="color: #2B66F7;">《用户隐私协议》</span>',
-    //     confirmText: '同意',
-    //     cancelText: '不同意',
-    //     confirmColor: '#2B66F7',
-    //     cancelColor: '#000000',
-    //     success(res) {
-    //         if (res.confirm) {
-    //             // 用户点击同意
-    //             wx.navigateTo({
-    //                 url: '/pages/home/home' // 假设首页路径为 /pages/home/home
-    //             });
-    //         } else if (res.cancel) {
-    //             // 用户点击不同意
-    //             console.log('用户不同意隐私协议');
-    //         }
-    //     }
-    // });
-},
+    onLogin: function () {
+        if (!this.data.agree) {
+            this.setData({
+                showModal: true
+            });
+        } else {
+            if (!this.data.idCardNumber) {
+                wx.showToast({
+                    title: '请输入身份证号',
+                    icon: 'none',
+                    duration: 1000
+                });
+                return;
+            } else if (!this.data.plateNumber) {
+                wx.showToast({
+                    title: '请输入车牌号',
+                    icon: 'none', duration: 1000
+                })
+                return
+            }
+            this.accountClick()
+        }
+    },
+    accountClick: function () {
+        if (this.data.openid.length > 0 && this.data.unionid.length > 0) {
+            this.toVerify()
+        } else {
+            wx.showLoading({
+                title: '',
+            })
+            const that = this
+            wx.login({
+                success(res) {
+                    getOpenID({
+                        code: res.code
+                    }).then(res => {
+                        wx.hideLoading()
+                        if (res.code == 0) {
+                            that.setData({
+                                openid: res.data.openid,
+                                unionid: res.data.unionid,
+                            })
+                            wx.setStorageSync('openid', res.data.openid)
+                            wx.setStorageSync('unionid', res.data.unionid);
+                           that.toVerify()
+                        } else {
+                            wx.showToast({
+                                title: res.msg,
+                                icon: 'none'
+                            })
+                        }
+                    })
+                }
+            })
+        }
+    },
+    toVerify: function () {
+        this.setData({
+            verify: Date.now()
+        })
+    },
+    // 极验
+    captchaSuccess: function (result) {
+        this.setData({
+            captchaData: result
+        })
+        let {detail} = this.data.captchaData
+        let gee = {
+            captchaOutput: detail.captcha_output,
+            lotNumber: detail.lot_number,
+            genTime: detail.gen_time,
+            passToken: detail.pass_token
+        }
+        this.captchaValidate(gee)
+    },
+    captchaValidate: function (gee) {
+        var captchaData = this.data.captchaData; // 获取完成验证码时存储的验证结果
+        if (typeof captchaData !== 'object') {
+            app.showToast('none', '请先完成验证！')
+            return
+        }
+        // 将结果提交给用户服务端进行二次验证
+        wx.showLoading();
+        let parme = {
+            openId: this.data.openid,
+            unionId: this.data.unionid,
+            time: new Date().getTime()
+        }
+        weChatLogin({
+            openId: WXBizDataCrypt.encrypted(JSON.stringify(parme)),
+            accountNum: this.data.idCardNumber,
+            password: WXBizDataCrypt.encrypted(this.data.plateNumber),
+            loginType: 3,
+            gee
+        }).then(res => {
+            wx.hideLoading()
+            if (res.code == 0) {
+                wx.setStorageSync('wxPush', res.data.wxPush)
+                wx.setStorageSync('token', res.data.accessToken);
+                getUserInfo.getUserInfo(res.data.userId)
+            } else {
+                wx.showToast({
+                    title: res.msg,
+                    icon: 'none',
+                });
+            }
+        }).catch(() => {
+          wx.showToast({
+            title: '网络错误',
+            icon: 'none',
+          });
+        })
+    },
+
 
     onConfirm() {
         this.setData({
-            showModal: false
-        });
-        wx.navigateTo({
-            url: '/pages/home/home'
+            showModal: false,
+            agree: true
         });
     },
     onCancel() {
