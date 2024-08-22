@@ -1,6 +1,15 @@
-.font32{
+.font32 {
     font-size: 32rpx;
 }
-.font31{
+
+.font34 {
+    font-size: 34rpx;
+}
+
+.font31 {
     font-size: 31rpx;
+}
+
+.font600 {
+    font-weight: 600!important
 }

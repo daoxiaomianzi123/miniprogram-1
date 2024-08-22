@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<custom-header title="{{ title }}" backgroundColor="{{backgroundColor}}" leftIconType="{{leftIconType}}" bind:goBack="goBack" />
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
     <view class="userinfo">
