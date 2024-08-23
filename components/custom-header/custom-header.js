@@ -1,7 +1,4 @@
-const navBarHeight = wx.getSystemInfoSync().platform == 'android' ? 48 : 44;
-const sysInfo = wx.getSystemInfoSync();
-const menuInfo = wx.getMenuButtonBoundingClientRect();
-const navigationBarHeight = (menuInfo.top - sysInfo.statusBarHeight) * 2 + menuInfo.height;
+const app= getApp();
 Component({
     properties: {
         title: {
@@ -30,9 +27,8 @@ Component({
         }
     },
     data: {
-        navigationBarHeight: navigationBarHeight,
-        navBarHeight: navBarHeight,
-        statusBarHeight: wx.getSystemInfoSync().statusBarHeight,
+        navigationBarHeight: app.globalData.navBarHeight,
+        statusBarHeight: app.globalData.statusBarHeight,
     },
     methods: {
         goHome() {
@@ -53,5 +49,4 @@ Component({
             }
         },
     },
-    onLoa
 });
