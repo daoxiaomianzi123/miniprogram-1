@@ -22,12 +22,12 @@
     text-align: center; /* 水平居中 */
     color: black;
     font-size: 32rpx;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .modal-text {
     line-height:2;
-    margin: 39rpx 68rpx 55rpx 68rpx;
+    margin: 24.5rpx 68rpx 40.5rpx 68rpx;
     text-align: center;
     font-size: 29rpx;
 }
@@ -46,6 +46,10 @@
     justify-content: space-between;
 }
 .modal-button {
+    font-size: 29rpx;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     flex: 1;
     background: white;
     font-weight: 400;
