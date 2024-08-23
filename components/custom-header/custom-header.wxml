@@ -1,6 +1,5 @@
-<view class="navigation-container" style="height: {{ navBarHeight }}px;background-color: {{ backgroundColor }};">
 <view style="height: {{ statusBarHeight }}px;">状态栏</view>
-<view class="custom-header" style="height: 48px;background-color: red;color: {{ titleColor }};">
+<view class="custom-header" style="height: {{navigationBarHeight}}px;background-color: red;color: {{ titleColor }};">
   <view class="header-left" bindtap="goBack">
     <image src="../../static/img/left-c.png" wx:if="{{ leftIconType === 'back' }}" class="left-c"> </image>
     <image src="../../static/img/home-b.png" wx:if="{{ leftIconType === 'home' }}" class="home-c"> </image>
@@ -14,5 +13,4 @@
     <view class="center-title font34 font600">{{ title }}</view>
   </view>
   <view class="header-right"></view>
-</view>
 </view>
