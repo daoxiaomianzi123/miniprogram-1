@@ -1,17 +1,10 @@
 
-.navigation-container {
-    position: fixed;
-    width: 100%;
-    z-index: 99;
-    top: 0;
-    left: 0;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-}
-
 .custom-header {
-    height: 140rpx;
+    position: fixed;
+    background-color: #ffffff;
+    width: 100%;
+    left: 0;
+    z-index: 99;
     display: flex;
     align-items: center;
 }
@@ -19,9 +12,7 @@
 .header-left {
     position: absolute;
     left: 32rpx;
-    bottom: 44rpx;
-    transform: translateY(50%);
-    height: 64rpx;
+    height: 100%;
     width: 100rpx;
     display: flex;
     align-items: center;
@@ -60,10 +51,7 @@
 
 .header-centers {
     position: absolute;
-    bottom: 44rpx;
     left: 100rpx;
-    transform: translateY(50%);
-    font-size: 14px;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;

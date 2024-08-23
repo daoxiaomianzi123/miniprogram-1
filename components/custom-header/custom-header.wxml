@@ -1,16 +1,17 @@
-<view style="height: {{ statusBarHeight }}px;">状态栏</view>
-<view class="custom-header" style="height: {{navigationBarHeight}}px;background-color: red;color: {{ titleColor }};">
-  <view class="header-left" bindtap="goBack">
-    <image src="../../static/img/left-c.png" wx:if="{{ leftIconType === 'back' }}" class="left-c"> </image>
-    <image src="../../static/img/home-b.png" wx:if="{{ leftIconType === 'home' }}" class="home-c"> </image>
-    <image src="../../static/img/wres.png" wx:if="{{ leftIconType === 'backW' }}" class="left-c"> </image>
-    <image src="../../static/img/home-A.png" wx:if="{{ leftIconType === 'homeA' }}" class="home-a"> </image>
-  </view>
-  <view class="header-centers" wx:if="{{ leftIconType === 'backW' }}">
-    <view class="center-title font32 font600">{{ title }}</view>
-  </view>
-  <view class="header-center" wx:else>
-    <view class="center-title font34 font600">{{ title }}</view>
-  </view>
-  <view class="header-right"></view>
+<view style="height: {{ statusBarHeight }}px;"></view>
+<view class="custom-header"
+      style="height: {{navigationBarHeight}}px;background-color: {{backgroundColor}};color: {{ titleColor }}; ">
+    <view class="header-left" bindtap="goBack">
+        <image src="../../static/img/left-c.png" wx:if="{{ leftIconType === 'back' }}" class="left-c"></image>
+        <image src="../../static/img/home-b.png" wx:if="{{ leftIconType === 'home' }}" class="home-c"></image>
+        <image src="../../static/img/wres.png" wx:if="{{ leftIconType === 'backW' }}" class="left-c"></image>
+        <image src="../../static/img/home-A.png" wx:if="{{ leftIconType === 'homeA' }}" class="home-a"></image>
+    </view>
+    <view class="header-centers" wx:if="{{ leftIconType === 'backW' }}">
+        <view class="center-title font32 font600">{{ title }}</view>
+    </view>
+    <view class="header-center" wx:else>
+        <view class="center-title font34 font600">{{ title }}</view>
+    </view>
+    <view class="header-right"></view>
 </view>

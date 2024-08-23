@@ -11,7 +11,8 @@ Page({
     hasUserInfo: false,
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
     canIUseNicknameComp: wx.canIUse('input.type.nickname'),
-    title:'和行DIP'
+    title:'和行DIP',
+    leftIconType: '',
   },
   bindViewTap() {
     wx.navigateTo({
