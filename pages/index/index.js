@@ -13,6 +13,22 @@ Page({
     canIUseNicknameComp: wx.canIUse('input.type.nickname'),
     title:'和行DIP',
     leftIconType: '',
+    theme: 'light',
+    tpList: [{
+      id: 1,
+      "img_url": 'https://oss-test.hexingyueche.com/images/manycars/static/home/banner.png'
+    },{
+      id: 2,
+      "img_url": 'https://oss-test.hexingyueche.com/images/manycars/static/home/banner.png'
+    },{
+      id: 3,
+      "img_url": 'https://oss-test.hexingyueche.com/images/manycars/static/home/banner.png'
+    }],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: false,
+    interval: 2000,
+    duration: 500
   },
   bindViewTap() {
     wx.navigateTo({
