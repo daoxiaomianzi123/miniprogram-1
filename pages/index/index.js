@@ -49,7 +49,7 @@ Page({
         }, {
             name: "整备验收",
             imgurl: 'https://oss-test.hexingyueche.com/images/manycars/static/icon/icon_5.png',
-            url: '/pageA/readinessacceptance/readinessacceptance',
+            url: '/pages/readinessacceptance/readinessacceptance',
             number: 0,
             permissiond: 'business:applet:car:check'
         }, {
@@ -186,6 +186,9 @@ Page({
         wx.showToast({
             title: '点击了' + this.data.tablistd[e.currentTarget.dataset.index].name,
             icon: 'none'
+        })
+        wx.navigateTo({
+            url:this.data.tablistd[e.currentTarget.dataset.index].url,
         })
     },
     callPhone(e) {

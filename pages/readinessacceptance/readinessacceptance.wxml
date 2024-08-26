@@ -1,0 +1,16 @@
+<!-- index.wxml -->
+<view class="container">
+  <!-- Tab栏 -->
+  <view class="tabs">
+    <view class="tab {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">Tab 1</view>
+    <view class="tab {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">Tab 2</view>
+    <view class="tab {{currentTab === 2 ? 'active' : ''}}" bindtap="switchTab" data-index="2">Tab 3</view>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content">
+    <view wx:if="{{currentTab === 0}}">内容1</view>
+    <view wx:if="{{currentTab === 1}}">内容2</view>
+    <view wx:if="{{currentTab === 2}}">内容3</view>
+  </view>
+</view>
