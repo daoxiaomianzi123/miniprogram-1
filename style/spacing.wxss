@@ -44,4 +44,7 @@
 .mar-bottom-37{
     margin-bottom: 37rpx;
 }
+.mar-bottom-21{
+    margin-bottom: 21rpx;
+}
 

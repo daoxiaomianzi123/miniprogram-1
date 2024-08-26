@@ -4,3 +4,9 @@
 .colorD3D3D3{
     color: #D3D3D3;
 }
+.color8D8D8D{
+    color: #8D8D8D;
+}
+.color424242{
+    color: #424242;
+}

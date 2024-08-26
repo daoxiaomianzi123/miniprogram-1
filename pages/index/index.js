@@ -117,17 +117,42 @@ Page({
                 url: '/pagesB/storageConfirm/index',
                 number: 0,
                 permissiond: 'business:applet:car:storage'
-            },
-            {
-                name: "租赁收车",
-                imgurl: 'https://oss-test.hexingyueche.com/images/manycars/static/icon/icon_12.png',
-                url: '/pagesB/rentalCollection/rentalCollection',
+            }, {
+                name: "入库确认",
+                imgurl: 'https://oss-test.hexingyueche.com/images/manycars/static/icon/icon_11.png',
+                url: '/pagesB/storageConfirm/index',
                 number: 0,
-                permissiond: 'business:applet:car:lt:return'
+                permissiond: 'business:applet:car:storage'
+            }, {
+                name: "入库确认",
+                imgurl: 'https://oss-test.hexingyueche.com/images/manycars/static/icon/icon_11.png',
+                url: '/pagesB/storageConfirm/index',
+                number: 0,
+                permissiond: 'business:applet:car:storage'
+            }, {
+                name: "入库确认",
+                imgurl: 'https://oss-test.hexingyueche.com/images/manycars/static/icon/icon_11.png',
+                url: '/pagesB/storageConfirm/index',
+                number: 0,
+                permissiond: 'business:applet:car:storage'
+            }, {
+                name: "入库确认",
+                imgurl: 'https://oss-test.hexingyueche.com/images/manycars/static/icon/icon_11.png',
+                url: '/pagesB/storageConfirm/index',
+                number: 0,
+                permissiond: 'business:applet:car:storage'
+            }, {
+                name: "入库确认",
+                imgurl: 'https://oss-test.hexingyueche.com/images/manycars/static/icon/icon_11.png',
+                url: '/pagesB/storageConfirm/index',
+                number: 0,
+                permissiond: 'business:applet:car:storage'
             }],
+        phoneNumber:'400-160-8899'
     },
     onLoad() {
         console.log("home ==== onLoad")
+        console.log("token =" + wx.getStorageSync('token'))
         if (wx.getStorageSync('token')) {
             this.gethomePer()
         }
@@ -157,10 +182,16 @@ Page({
         })
         return value
     },
-    tabClick(e){
+    tabClick(e) {
         wx.showToast({
-            title: '点击了'+this.data.tablistd[e.currentTarget.dataset.index].name,
+            title: '点击了' + this.data.tablistd[e.currentTarget.dataset.index].name,
             icon: 'none'
+        })
+    },
+    callPhone(e) {
+        console.log(e.currentTarget.dataset.phone)
+        wx.makePhoneCall({
+            phoneNumber: e.currentTarget.dataset.phone
         })
     },
 

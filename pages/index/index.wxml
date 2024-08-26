@@ -1,44 +1,51 @@
 <!--index.wxml-->
-        <custom-header title="{{ title }}" backgroundColor="{{backgroundColor}}" leftIconType="{{leftIconType}}"
-                       bind:goBack="goBack"/>
-    <view class="container" style="margin-top: {{navigationBarHeight+statusBarHeight}}px">
-        <view class="swiper-container">
-            <swiper class="swiper-content" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}"
-                    indicator-active-color="{{indicatorActiveColor}}"
-                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-                <block wx:for="{{tpList}}" wx:key="*this" wx:for-item="tpTeam" id="{{tpTeam.id}}">
-                    <swiper-item>
-                        <image class="swiperImg" src="{{tpTeam.img_url}}" mode="scaleToFill"></image>
-                    </swiper-item>
-                </block>
-            </swiper>
-        </view>
-            <view class="tab-list">
-                <view class="tab-item" wx:for="{{tablistd}}" wx:key="*this" bindtap="tabClick" data-index="{{index}}">
-                    <image class="tab-icon" src="{{item.imgurl}}"></image>
-                    <text class="tab-text">{{item.name}}</text>
-                </view>
-            </view>
-        <view class="userinfo">
-            <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-                <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-                    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-                </button>
-                <view class="nickname-wrapper">
-                    <text class="nickname-label">昵称</text>
-                    <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange"/>
-                </view>
+<custom-header title="{{ title }}" backgroundColor="{{backgroundColor}}" leftIconType="{{leftIconType}}"
+               bind:goBack="goBack"/>
+<view class="container" style="margin-top: {{navigationBarHeight+statusBarHeight}}px">
+    <view class="swiper-container">
+        <swiper class="swiper-content" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}"
+                indicator-active-color="{{indicatorActiveColor}}"
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+            <block wx:for="{{tpList}}" wx:key="*this" wx:for-item="tpTeam" id="{{tpTeam.id}}">
+                <swiper-item>
+                    <image class="swiperImg" src="{{tpTeam.img_url}}" mode="scaleToFill"></image>
+                </swiper-item>
             </block>
-            <block wx:elif="{{!hasUserInfo}}">
-                <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile">获取头像昵称</button>
-                <view wx:else>请使用2.10.4及以上版本基础库</view>
-            </block>
-            <block wx:else>
-                <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-                <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-            </block>
-        </view>
-        <view class="usermotto">
-            <text class="user-motto">{{motto}}</text>
+        </swiper>
+    </view>
+    <view class="tab-list">
+        <view class="tab-item" wx:for="{{tablistd}}" wx:key="*this" bindtap="tabClick" data-index="{{index}}">
+            <image class="tab-icon" src="{{item.imgurl}}"></image>
+            <text class="tab-text">{{item.name}}</text>
         </view>
     </view>
+    <view class="userinfo">
+        <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
+            <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+                <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+            </button>
+            <view class="nickname-wrapper">
+                <text class="nickname-label">昵称</text>
+                <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange"/>
+            </view>
+        </block>
+        <block wx:elif="{{!hasUserInfo}}">
+            <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile">获取头像昵称</button>
+            <view wx:else>请使用2.10.4及以上版本基础库</view>
+        </block>
+        <block wx:else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+    </view>
+    <view class="usermotto">
+        <text class="user-motto">{{motto}}</text>
+    </view>
+    <view class="customer_service">
+        <view class="mar-bottom-21 customer_phone" bindtap="callPhone" data-phone="{{phoneNumber}}">
+            <image src="../../static/icon/phone-t.png"></image>
+            <text>{{phoneNumber}}</text>
+        </view>
+        <view class="customer_company color8D8D8D">@2018-2024 合肥和行科技有限公司</view>
+    </view>
+</view>
