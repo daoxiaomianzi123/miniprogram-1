@@ -1,7 +1,7 @@
 <!--index.wxml-->
         <custom-header title="{{ title }}" backgroundColor="{{backgroundColor}}" leftIconType="{{leftIconType}}"
                        bind:goBack="goBack"/>
-    <view class="container" style="margin-top: {{navigationBarHeight}}px">
+    <view class="container" style="margin-top: {{navigationBarHeight+statusBarHeight}}px">
         <view class="swiper-container">
             <swiper class="swiper-content" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}"
                     indicator-active-color="{{indicatorActiveColor}}"
@@ -13,6 +13,12 @@
                 </block>
             </swiper>
         </view>
+            <view class="tab-list">
+                <view class="tab-item" wx:for="{{tablistd}}" wx:key="*this" bindtap="tabClick" data-index="{{index}}">
+                    <image class="tab-icon" src="{{item.imgurl}}"></image>
+                    <text class="tab-text">{{item.name}}</text>
+                </view>
+            </view>
         <view class="userinfo">
             <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
                 <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
