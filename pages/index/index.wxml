@@ -1,10 +1,11 @@
 <!--index.wxml-->
-    <view class="container">
         <custom-header title="{{ title }}" backgroundColor="{{backgroundColor}}" leftIconType="{{leftIconType}}"
                        bind:goBack="goBack"/>
+    <view class="container" style="margin-top: {{navigationBarHeight}}px">
         <view class="swiper-container">
-            <swiper class="swiper-content" indicator-dots="{{indicatorDots}}"
-                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <swiper class="swiper-content" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}"
+                    indicator-active-color="{{indicatorActiveColor}}"
+                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
                 <block wx:for="{{tpList}}" wx:key="*this" wx:for-item="tpTeam" id="{{tpTeam.id}}">
                     <swiper-item>
                         <image class="swiperImg" src="{{tpTeam.img_url}}" mode="scaleToFill"></image>

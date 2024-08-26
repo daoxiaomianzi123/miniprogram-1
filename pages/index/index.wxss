@@ -23,7 +23,7 @@ page {
 .swiper-container {
     height: 300rpx;
     width: 100%;
-    padding: 0 36rpx 0;
+    padding: 30rpx 36rpx 0;
     box-sizing: border-box; /* 明确设置 box-sizing */
 }
 

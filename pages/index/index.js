@@ -1,6 +1,6 @@
 // index.js
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-
+const app = getApp();
 Page({
   data: {
     motto: 'Hello World',
@@ -11,6 +11,7 @@ Page({
     hasUserInfo: false,
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
     canIUseNicknameComp: wx.canIUse('input.type.nickname'),
+    navigationBarHeight: app.globalData.navBarHeight,
     title:'和行DIP',
     leftIconType: '',
     theme: 'light',
@@ -18,17 +19,20 @@ Page({
       id: 1,
       "img_url": 'https://oss-test.hexingyueche.com/images/manycars/static/home/banner.png'
     },{
-      id: 2,
+      id: 1,
       "img_url": 'https://oss-test.hexingyueche.com/images/manycars/static/home/banner.png'
     },{
-      id: 3,
+      id: 1,
       "img_url": 'https://oss-test.hexingyueche.com/images/manycars/static/home/banner.png'
     }],
-    indicatorDots: true,
+    indicatorDots:  true, //是否显示面板指示点
+    indicatorColor: 'rgba(255,255,255,0.5)', //指示点颜色
+    indicatorActiveColor: 'white', //当前指示点颜色
     vertical: false,
-    autoplay: false,
-    interval: 2000,
-    duration: 500
+    autoplay: true,
+    interval: 3000,
+    duration: 500,
+    circular: true //是否采用衔接滑动,
   },
   bindViewTap() {
     wx.navigateTo({
