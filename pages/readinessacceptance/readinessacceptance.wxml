@@ -13,13 +13,16 @@
             </view>
         </view>
     </view>
+</view>
+
     <!-- 内容区域 -->
-    <view style="margin-top:98rpx;">
+    <view style="margin-top: 98rpx;">
         <scroll-view scroll-y="true" bindscrolltolower="onScrollToLower" refresher-enabled="true"
-                     refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onRefresh" style="height: 100vh;">
+                     refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onRefresh"
+                     style="height: calc(100vh - {{navigationBarHeight+statusBarHeight+49}}px); background-color:aqua">
             <block wx:for="{{listData}}" wx:key="id">
                 <view class="list-item border-radius-16 background-white">
-                    <view class="font28 color212121 font600">整备单号: 20230217-JC-0002</view>
+                    <view class="font28 color212121 font600">{{item.order}}</view>
                     <view class="common-line mar-top-36"></view>
                     <view class="item-content">
                         <view class="item-left">
@@ -40,4 +43,3 @@
             <view wx:if="{{isLoadingMore}}" style="text-align:center;">加载中...</view>
         </scroll-view>
     </view>
-</view>
