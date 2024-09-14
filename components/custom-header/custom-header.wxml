@@ -10,7 +10,7 @@
         <view class="center-title font32 font600">{{ title }}</view>
     </view>
     <view class="header-center" wx:else>
-        <view class="center-title font34 font600">{{ title }}</view>
+        <view class="center-title {{leftIconType === 'back' ? 'font32' : 'font36'}} font600">{{ title }}</view>
     </view>
     <view class="header-right"></view>
 </view>

@@ -1,33 +1,124 @@
 /* index.wxss */
+
 .container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f6f6f6;
 }
 
 .tabs {
-  display: flex;
-  background-color: #f5f5f5;
-  padding: 10px 0;
+    background-color: white;
+    height: 98rpx;
+    display: flex;
 }
 
 .tab {
-  flex: 1;
-  text-align: center;
-  padding: 10px;
-  cursor: pointer;
+    font-weight: 600;
+    flex-direction: column;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    flex: 1;
+    color: #212121;
+    font-size: 32rpx;
 }
 
 .tab.active {
-  color: #1aad19;
-  border-bottom: 2px solid #1aad19;
+    color: #4D6CFB;
 }
 
-.content {
-  flex: 1;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
+.line {
+    width: 36rpx;
+    height: 6rpx;
+    background: #fff;
+    border-radius: 3rpx;
+}
+
+.line.active {
+    background: #4D6CFB;
+}
+
+.list-item {
+    margin: 36rpx 28rpx;
+    padding: 39.33rpx 40rpx 36rpx 38rpx;
+    box-sizing: border-box;
+}
+
+.item-content {
+    margin-top: 28rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.item-left {
+    position: relative;
+}
+
+.item-left-img {
+    width: 213.33rpx;
+    height: 173.33rpx;
+    display: block; /* 去除图片底部空白 */
+}
+
+.item-left-text {
+    font-size: 21.33rpx;
+    height: 37.33rpx;
+    position: absolute;
+    bottom: 0; /* 文字与图片底部对齐 */
+    left: 0;
+    width: 100%;
+    background-color: #34C85A;
+    color: white;
+    text-align: center; /* 文字居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 9.33rpx 9.33rpx;
+}
+.item-placeholder{
+    font-size: 32rpx;
+    color: #212121;
+    margin-top: 12.67rpx;
+    margin-left: 27.33rpx;
+    line-height: 1;
+    font-weight: 600;
+}
+.item-vehicle-model{
+    margin-top: 15.33rpx;
+    line-height: 1;
+    font-size: 24rpx;
+    color: #424242;
+    margin-left: 27.33rpx;
+    font-weight: 500;
+}
+.item-vehicle-status{
+    width: 132rpx;
+    font-weight: 500;
+    line-height: 42.67rpx;
+    height: 42.67rpx;
+    font-size: 25.33rpx;
+    color: white;
+    margin-left: 28rpx;
+    background-color: #4D6CFB;
+    text-align: center;
+    border-radius: 5.33rpx;
+    box-sizing: border-box;
+
+}
+.item-assistance-status{
+    font-weight: 500;
+    box-sizing: border-box;
+    width: 132rpx;
+    height: 42.67rpx;
+    line-height: 42.67rpx;
+    font-size: 25.33rpx;
+    color: #8D8D8D;
+    margin-left: 20.67rpx;
+    border: 1.33rpx solid #8D8D8D;
+    text-align: center;
+    border-radius: 5.33rpx;
 }

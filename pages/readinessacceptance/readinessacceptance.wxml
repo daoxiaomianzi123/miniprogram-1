@@ -1,16 +1,43 @@
 <!-- index.wxml -->
-<view class="container">
-  <!-- Tab栏 -->
-  <view class="tabs">
-    <view class="tab {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">Tab 1</view>
-    <view class="tab {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">Tab 2</view>
-    <view class="tab {{currentTab === 2 ? 'active' : ''}}" bindtap="switchTab" data-index="2">Tab 3</view>
-  </view>
-
-  <!-- 内容区域 -->
-  <view class="content">
-    <view wx:if="{{currentTab === 0}}">内容1</view>
-    <view wx:if="{{currentTab === 1}}">内容2</view>
-    <view wx:if="{{currentTab === 2}}">内容3</view>
-  </view>
+<custom-header title="{{ title }}" backgroundColor="{{backgroundColor}}" leftIconType="{{leftIconType}}"
+               bind:goBack="goBack"/>
+<view class="container" style="padding-top: {{navigationBarHeight+statusBarHeight}}px">
+    <!-- Tab栏 -->
+    <view style="position: fixed; z-index: 999;width: 100%;">
+        <view class="tabs">
+            <view class="tab {{currentTab === '0' ? 'active' : ''}}" bindtap="switchTab" data-index="0">待处理
+                <view class="line {{currentTab === '0' ? 'active' : ''}}"/>
+            </view>
+            <view class="tab {{currentTab ==='1' ? 'active' : ''}}" bindtap="switchTab" data-index="1">已处理
+                <view class="line {{currentTab === '1' ? 'active' : ''}}"/>
+            </view>
+        </view>
+    </view>
+    <!-- 内容区域 -->
+    <view style="margin-top:98rpx;">
+        <scroll-view scroll-y="true" bindscrolltolower="onScrollToLower" refresher-enabled="true"
+                     refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onRefresh" style="height: 100vh;">
+            <block wx:for="{{listData}}" wx:key="id">
+                <view class="list-item border-radius-16 background-white">
+                    <view class="font28 color212121 font600">整备单号: 20230217-JC-0002</view>
+                    <view class="common-line mar-top-36"></view>
+                    <view class="item-content">
+                        <view class="item-left">
+                            <image src="../../static/img/car.png" class="item-left-img"/>
+                            <view wx:if="{{currentTab === '0'}}" class="item-left-text color212121">验收成功</view>
+                        </view>
+                        <view>
+                            <view class="item-placeholder">皖SJ28319</view>
+                            <view class="item-vehicle-model">江淮 iEVA50</view>
+                            <view wx:if="{{currentTab === '1'}}" style="display:flex; margin-top:35.33rpx;">
+                                <view class="item-vehicle-status">闲置待用</view>
+                                <view class="item-assistance-status">入库</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view wx:if="{{isLoadingMore}}" style="text-align:center;">加载中...</view>
+        </scroll-view>
+    </view>
 </view>

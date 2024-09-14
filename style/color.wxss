@@ -10,3 +10,9 @@
 .color424242{
     color: #424242;
 }
+.color212121{
+    color: #212121;
+}
+.background-white{
+    background-color:white;
+}

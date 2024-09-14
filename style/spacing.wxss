@@ -35,6 +35,9 @@
 .mar-top-27{
     margin-top: 27rpx;
 }
+.mar-top-36{
+    margin-top: 36rpx;
+}
 .mar-top-85{
     margin-top: 185rpx;
 }
@@ -47,4 +50,6 @@
 .mar-bottom-21{
     margin-bottom: 21rpx;
 }
-
+.mar-36-28{
+    margin: 36rpx 28rpx;
+}

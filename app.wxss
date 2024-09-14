@@ -2,5 +2,10 @@
 @import 'style/spacing.wxss';
 @import 'style/font.wxss';
 @import 'style/color.wxss';
+@import 'style/border.wxss';
 
+.common-line{
+    height: 0.67rpx;
+    background: #e5e5e5;
+}
 

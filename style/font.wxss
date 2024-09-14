@@ -5,11 +5,18 @@
 .font34 {
     font-size: 34rpx;
 }
-
+.font36{
+    font-size: 36rpx;
+}
+.font28{
+    font-size: 28rpx;
+}
 .font31 {
     font-size: 31rpx;
 }
-
+.font500{
+    font-weight: 500!important
+}
 .font600 {
     font-weight: 600!important
 }
